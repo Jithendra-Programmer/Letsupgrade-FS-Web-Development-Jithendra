@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Assignment 1</title>
+    <link rel="shortcut icon" href="./resources/favicon.png">
+</head>
+<body>
+    
+    <!-- Headeratags -->
+
+    <h1>This is Heading</h1>
+    <h2>This is Heading</h2>
+    <h3>This is Heading</h3>
+    <h4>This is Heading</h4>
+    <h5>This is Heading</h5>
+    <h6>This is Heading</h6>
+
+    <!-- Paragraph tags -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta modi beatae voluptatibus ab distinctio iure, quisquam ipsum quas dignissimos voluptatem suscipit assumenda corrupti sunt aliquam quae quia maiores? Sit, repellendus.</p>
+    <pre>
+        This is pre formted Paragraph tag.
+        Check out this Java Code
+
+        public class main {
+            public static void main(String[] args) {
+                System.out.println("Hello World!");
+            }
+        }  
+        
+        Check out same code in Javascript
+
+        console.log("Hello World!");
+
+        Check out same code in Python
+
+        print("Hello World!")
+
+    </pre>
+
+    <h2>These are some street bikes that I like</h2>
+    <ul type="square">
+        <li>kawasaki z900</li>
+        <li>Trimph street triple</li>
+        <li>Baleni 600i</li>
+        <li>BMW F900R</li>
+    </ul>
+    <h2>These are some sport bikes That I like</h2>
+    <ol type="i" start="4">
+        <li>kawasaki ZX10R</li>
+        <li>BMW s1000r</li>
+        <li>Suzuki Hayabusa</li>
+        <li>kawasaki H2R</li>
+    </ol>
+
+    <h2>Here is the street triple Image Click on image to vist offical wed site of Trimph Street Triple</h2>
+    <a href="https://www.triumphmotorcycles.in/motorcycles/roadsters/speed-triple-1200" target="_blank">
+        <img src="https://images.triumphmotorcycles.co.uk/media-library/images/motorcycles/roadsters-supersports/my21/pb1%20speed%20triple/family%20page%20images/speed-triple-family-hero-2-1920x1080.jpg" alt="Street-Triple-image" width="400px">
+    </a>
+
+    <h3>Here is one my favorite song</h3>
+    <audio controls>
+        <source src="./resources/music.mp3" />
+    </audio> 
+
+    <h3>Here is a small about Street triple</h3>
+    <video controls width="500px">
+        <source src="./resources/New Street Triple R.mp4" />
+    </video>
+
+    <h4>Here is the review of street triple R</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HxBUmiomM1c" allowfullscreen></iframe>
+
+    <h4>Here is the Location for Triumph Shaman Motors Mumbai</h4>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15077.859340583107!2d72.8468913697754!3d19.1311196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7d5b715548b%3A0x34ede9bedecc0c01!2sTriumph%20Shaman%20Motors!5e0!3m2!1sen!2sin!4v1622530955550!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    <h2>These are some bikes and thier specs</h2>
+    <table border="1" cellspacing="10px">
+        <thead>
+            <tr>
+                <th>Bike</th>
+                <th>Engine CC</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Street Triple</td>
+                <td>765 CC</td>
+            </tr>
+            <tr>
+                <td>BMW 1250 gsa</td>
+                <td>1254 CC</td>
+            </tr>
+            <tr>
+                <td>kawasaki ZX10R</td>
+                <td rowspan="2">1000 CC</td>
+            </tr>
+            <tr>
+                <td>kawasaki H2R</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Please fill this form</h4>
+    <form>
+        <input type="text" placeholder="Enter your Favorite Bike" required /> <br><br>
+        <input type="email" placeholder="Enter your email" /><br><br>
+        <input type="password" minlength="8" maxlength="18" pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).$/" placeholder="Enter Password" required /><br><br>
+        300 <input type="range" placeholder="Select engine CC" /> 1800 <br><br>
+        <input type="number" max="12" min="10" placeholder="Enter your number"/> <br><br>
+        <input type="date" placeholder="Enter your date of birth"/> <br><br>
+        <input type="time"/> <br><br>
+        <input type="month" /> <br><br>
+        <input type="url" placeholder="Enter url" /> <br><br>
+        <input type="search" placeholder="Search for any bike" /> <br><br>
+        <input type="color" /> <br><br>
+        <input type="file" /> <br><br>
+        <input type="hidden" placeholder="This is hidden" /> <br><br>
+        <input type="checkbox" placeholder="Street Bikes" /> <br><br>
+        <input type="radio" placeholder="radio"> <br><br>
+        
+        <textarea cols="100" rows="10" placeholder="Write something about your favorite bike"></textarea> <br><br>
+
+        <select required>
+            <option selected value="">Select Bike</option>
+            <option value="Street Triple">Street Triple</option>
+            <option value="BMW 1250GS">BMW 1250 GS</option>
+            <option value="kawasaki ZX10R">kawasaki ZX10R</option>
+            <option value="BMW s100r">BMW S1000R</option>
+            <option value="Kawasaki H2R">Kawasaki Ninja H2R</option>
+            <option value="Suzuki">Suzuki Hayabusa</option>
+            <option value="other">other</option>
+        </select> <br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Click to reset</button>
+        <button type="button">Click me</button>
+        
+    </form>
+
+</body>
+</html>

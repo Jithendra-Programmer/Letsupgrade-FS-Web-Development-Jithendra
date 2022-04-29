@@ -1,0 +1,297 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    background-color: #444343;
+}
+
+.container {
+    margin: auto;
+    width: 90%;
+    padding: 50px 30px;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Segoe UI';
+}
+
+#form {
+    width: 100%;
+}
+
+.fliters {
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    background-color: #585858;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.feilds-container {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-evenly;
+}
+
+.feild-container {
+    width: 30%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feild-lable {
+    margin-bottom: 4px;
+}
+
+.fliter_field {
+    box-sizing: border-box;
+    background-color: #585858;
+    height: 40px;
+    width: 100%;
+    text-indent: 20px;
+    font-size: 16px;
+    border: 1px solid darkgray;
+    outline: none;
+    border-radius: 10px;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.fliter_name_field {
+    width: 100%;
+}
+
+.fliter_fields {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fliter_field::placeholder {
+    color: #fff;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn:active {
+    border: 1px solid darkgray;
+    background-color: transparent;
+    color: #fff;
+}
+
+.title {
+    color: #fff;
+}
+
+.superhero-container {
+    padding-top:30px 0px;
+    width: 100%;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.superhero {
+    width: 22%;
+    box-shadow: 0px 2px 5px gray;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 50px;
+}
+
+.superhero-img {
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.superhero-img>img {
+    width: 100%;
+}
+
+.superhero-desc {
+    font-family: 'Segoe UI';
+    padding: 20px;
+    padding-top: 10px;
+}
+
+.superhero-title {
+    font-size: 25px;
+}
+
+.powerstats>div {
+    padding: 3px 0px;
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    color: #0f0f0f;
+    font-weight: 400;
+}
+
+.bodystats {
+    margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: gray;
+}
+
+.loading {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: auto;
+    border: 10px solid #fff;
+    border-top: 10px solid transparent;
+    animation-timing-function: linear;
+    animation-name: loading;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-play-state: running;
+    transition: .6s ease-in-out;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.power-bg {
+    height: 10px;
+    width: 100%;
+    background-color: lightgray;
+    margin-top: 5px;
+}
+
+.power-fg {
+    height: 10px;
+    background-color: skyblue;
+}
+
+.modal-parent {
+    width: 100%;
+    height: 100vh;
+    transition: 0.4s;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 1s;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.colse {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.model-child {
+    background-color: #fff;
+    min-height: 80vh;
+    width: 70%;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-30vh);
+    transition: .4s;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.model-image {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    overflow: hidden;
+}
+
+.model-details {
+    box-sizing: border-box;
+    width: 60%;
+    padding: 20px;
+    font-family: 'Segoe UI';
+    overflow: auto;
+    
+}
+
+.details {
+    margin-top: 10px;
+}
+
+.details-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.details-container>div {
+    width: 30%;
+    margin-top: 6px;
+}
+
+.connections .details-container>div {
+    width: 49%;
+}
+
+.connections .value {
+    font-size: 12px;
+    margin-top: 2px;
+    font-weight: 600;
+}
+
+.details-title {
+    font-size: 16px;
+    color: gray;
+}
+
+.propertity {
+    font-size: 12px;
+    font-weight: normal;
+    color: gray;
+}
+
+.value {
+    font-weight: bold;
+    font-size: 14px;
+}
+.powerstates>.details-container>div>.propertity {
+    font-weight: 600;
+    color: #000;
+}
+
+/* .powerstates .details-container div .propertity {
+    font-weight: bolder;
+} */
+
+

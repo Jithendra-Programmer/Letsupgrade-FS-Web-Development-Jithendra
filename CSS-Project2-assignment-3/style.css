@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    /* background-color: transparent; */
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    line-height: 50px;
+    color: #35BDD0;
+}
+
+.nav-links {
+    width: 40%;
+    height: 70px;
+}
+
+.nav-links>ul {
+    display: flex;
+}
+
+.nav-links>ul>li {
+    list-style-type: none;
+    width: 25%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: #35BDD0;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    font-family: 'Yellowtail', cursive;
+    font-size: 20px;
+}
+
+.nav-links>ul>li:hover {
+    background-color: #35BDD0;
+    color: #242B2E;
+}
+
+.banner {
+    background-image: url('https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-content {
+    background-color: rgba(255, 255, 255, .5);
+    width: 60%;
+    padding: 50px;
+    box-shadow: 0px 0px 10px #758283;
+    border-radius: 20px;
+    color: #120E43;
+}
+
+.banner-content>h1 {
+    font-size: 50px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.banner-content>h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.banner-content>p {
+    margin-top: 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+    color: darkblue;
+}
+
+.skills {
+    margin-top: 60px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.font {
+    font-size: 30px;
+    color: #383CC1;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.card {
+    width: 30%;
+    height: auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 20px;
+    height: auto;
+}
+
+.card-image {
+    width: 100%;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.card-body{
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 50% 50% 20px 20px;
+    transition: .5s ease-in-out;
+}
+
+.card-body>h1 {
+    color: #E03B8B;
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+    transition: color .5s ease-in-out;
+}
+
+.card:hover .card-body {
+    height: 80%;
+    border-radius: 20% 20% 20px 20px;
+}
+
+.card:hover .card-body>h1 {
+    color: #fff;
+}
+
+
+.card:nth-child(1) {
+    margin-top: 60px;
+}
+
+.card:nth-child(2) {
+    margin-bottom: 60px;
+}
+
+.card:nth-child(3) {
+    margin-top: 60px;
+}
+
+.intersets {
+    width: 100%;
+    background: linear-gradient(#538FFB, #5B54FA);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intersets>h1 {
+    padding-top: 20px;
+    color: #CAD5E2;
+}
+
+.interset-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.interset {
+    width: 25%;
+    height: 600px;
+    background-color: #eee;
+    display: flex;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .8) !important;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    transition: .5s ease-in-out;
+    display: flex;
+}
+
+.interset-body {
+    align-self: flex-end;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, .2);
+    color: #35BDD0;
+    transition: .5s ease-in-out;
+}
+
+
+.interset:nth-child(even) .interset-body {
+    align-self: flex-start;
+}
+
+
+.interset:hover .interset-body {
+    height: 70%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.interset:hover .overlay {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.interset:nth-child(1) {
+    background-image: url("https://images.pexels.com/photos/3861959/pexels-photo-3861959.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(2) {
+    background-image: url("https://images.pexels.com/photos/5195496/pexels-photo-5195496.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(3) {
+    background-image: url("https://images.pexels.com/photos/4526481/pexels-photo-4526481.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(4) {
+    background-image: url("https://images.pexels.com/photos/375751/pexels-photo-375751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(5) {
+    background-image: url("https://images.pexels.com/photos/7278888/pexels-photo-7278888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(6) {
+    background-image: url("https://www.insidehighered.com/sites/default/server_files/media/online-library-and-knowledge-vector-id943117712.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(7) {
+    background-image: url("https://images.pexels.com/photos/5428150/pexels-photo-5428150.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.interset:nth-child(8) {
+    background-image: url("https://images.pexels.com/photos/3861965/pexels-photo-3861965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about {
+    width: 100%;
+    background-color: #207398;
+}
+
+.about>.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #CAD5E2;
+    line-height: 30px;
+}
+
+.about>.container>h1 {
+    text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.about>.container>p {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+}
+
+.about>.container>p>span {
+    font-size: 30px;
+    font-family: monospace;
+}
+
+
+.footer {
+    margin-top: 40px;
+    background-color: #242B2E;
+    display: flex;
+    justify-content: center;
+}
+
+.footer>.container {
+    display: flex;
+}
+
+.footer_child {
+    height: 300px;
+    width: 30%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: #CAD5E2;
+}
+
+.footer_child:nth-child(1) {
+    align-items: center;
+}
+
+.footer_child:nth-child(1)>h1 {
+    font-size: 50px;
+    color: #35BDD0;
+}
+
+.footer ul {
+    margin-top: 40px;
+    list-style-type: none;
+}
+
+.footer li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: .5s;
+}
+
+.footer li:nth-child(1) {
+    font-size: 40px;
+    color: #35BDD0;
+}
+
+
+.footer-link-hover:hover {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #35BDD0;
+}
+
+.footer_child:nth-child(3) a {
+    text-decoration: none;
+    color: #CAD5E2;
+}
+
+.footer_child:nth-child(3) a:hover {
+    text-decoration: none;
+    color: #35BDD0;
+}
+
+.footer_child:nth-child(3)>ul>li:nth-child(2):hover {
+    color: #35BDD0;
+    cursor: pointer;
+}

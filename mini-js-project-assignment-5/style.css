@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 70%;
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container,
+.table-container {
+    padding: 20px;
+}
+
+.form-control {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-container > input {
+    height: 40px;
+    width: 25%;
+    text-indent: 15px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.form-container > input:focus {
+    box-shadow: 1px 2px 5px lightgray;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #242b2e;
+    transition: 0.4s;
+    box-sizing: border-box;
+    background-color: #efefef;
+    border: 1px solid #efefef;
+}
+
+.btn:active,
+.btn:hover {
+    box-shadow: 1px 2px 5px gray;
+}
+
+table {
+    border: 1px solid gray;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI';
+    font-size: 16px;
+}
+
+th,
+td {
+    border: 1px solid gray;
+    height: 40px;
+    text-align: center;
+}
+
+td {
+    padding: 10px 20px;
+}
+
+.update-btn,
+.delete-btn {
+    font-weight: 600;
+    font-size: 12px;
+    padding: 8px 20px;
+}
+
+.update-btn:hover,
+.update-btn:active {
+    border: 1px solid rgb(200, 204, 255);
+    box-shadow: 1px 2px 5px rgb(169, 175, 252);
+}
+
+.delete-btn:hover,
+.delete-btn:active {
+    border: 1px solid rgb(253, 149, 149);
+    box-shadow: 1px 2px 5px rgb(253, 149, 149);
+}
+
+#update-form {
+    opacity: 0;
+    transition: 0.6s;
+}

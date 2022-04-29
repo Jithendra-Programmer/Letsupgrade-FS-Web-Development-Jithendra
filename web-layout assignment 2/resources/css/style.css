@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #CAD5E2;
+}
+
+.navbar h1 {
+    padding: 10px 0;
+    margin-left: 5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #207398;
+}
+
+.navbar h1 span{
+    font-size: large;
+    color: #23C4ED;
+}
+
+.banner {
+    width: 100%;
+    height: 600px;
+    background-image: url('../images/banner.jpg');
+}
+
+.banner-content {
+    width: 40%;
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+    display: inline-block;
+    margin-left: 10%;
+    margin-top: 250px;
+    padding: 10px;
+    font-family: 'Hammersmith';
+    color: #fff;
+    border-radius: 20px;
+}
+
+
+.banner-content>h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.banner-content>p {
+    padding-bottom: 10px;
+}
+
+.banner-content>button {
+    border: none;
+    height: auto;
+    width: 150px;
+    padding: 10px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #207398;
+}
+
+.banner-content>button:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0px 10%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px 0px;
+    font-size: 0px;
+}
+
+.container>h2 {
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #23C4ED;
+    font-size: 40px;
+}
+
+.bikes {
+    font-size: 0px;
+    padding: 20px 0px
+}
+
+.bike {
+    width: 25%;
+    height: auto;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: calc(25%/4);
+    margin-bottom: 30px;
+}
+
+.image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    transition: transform .5s ease;
+}
+
+.image img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.bike-disc {
+    padding: 20px 10px;
+    background: #eee;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.bike-disc>p {
+    margin-top: 10px;
+    font-weight: 100;
+    font-size: 14px;
+    color: gray;
+}
+
+.bike-disc>button {
+    text-align: center;
+    padding: 15px 30px;
+    margin-top: 10px;
+    background-color: lightblue;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bike-disc>button:hover {
+    background: #fff;
+    color: #207398;
+}
+
+.about {
+    border-top: 1px solid lightgray;
+    background-color: #eee;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.about>h1 {
+    text-align: center;
+}
+
+.about>.container {
+    font-size: 18px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.map {
+    width: 100%;
+    height: 60vh;
+    background-color: #eee;
+}
+
+.map>iframe {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+
+        <div onclick="closeModel(event)" class="modal-parent" id="model" >
+
+            <div onclick="hideSuperHero()" class="colse">X</div>
+            <div id="model-child" class="model-child">
+
+                <div class="model-image">
+
+                    <img id="superhero-img" src="https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/1-a-bomb.jpg" alt="model image">
+
+                </div>
+                <div class="model-details">
+
+                    <div style="display: flex; justify-content: space-between;">
+                        <h1 id="superhero-name" >A-Bomb</h1>
+                        <button style="background-color: lightblue;" onclick="hideSuperHero()" class="btn" >Close</button>
+                    </div>
+
+                    <div class="appearance details" style="margin-bottom: 5px;" >
+                        <h1 class="details-title" >Appearance</h1>
+                        <div class="details-container">
+                            <div>
+                                <p class="propertity">Gender</p>
+                                <p id="superhero-gender" class="value">Male</p>
+                            </div>
+                            <div>
+                                <p class="propertity">Height</p>
+                                <p id="superhero-height" class="value">5.9</p>
+                            </div>
+                            <div>
+                                <p class="propertity">Weight</p>
+                                <p id="superhero-weight" class="value">900 kg</p>
+                            </div>
+                            <div>
+                                <p class="propertity">Eye color</p>
+                                <p id="superhero-eyeColor" class="value">Brown</p>
+                            </div>
+                            <div>
+                                <p class="propertity">Hair color</p>
+                                <p id="superhero-hairColor" class="value">Black</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="biography details">
+                        <h1 class="details-title" >Biography</h1>
+                        <div class="details-container">
+                            <div>
+                                <p class="propertity">Full Name</p>
+                                <p id="superhero-fullName" class="value">Richard Milhouse Jones</p>
+                            </div>
+                            <div>
+                                <p class="propertity">Alter Ego</p>
+                                <p id="superhero-ego" class="value">No alter egos found</p>
+                            </div>
+                            <div>
+                                <p class="propertity">First Appearance</p>
+                                <p id="superhero-appearance" class="value">Hulk Vol 2 #2 (April, 2008) (as A-Bomb)</p>
+                            </div>
+                            <div style="margin: 0px;">
+                                <p class="propertity">Publisher</p>
+                                <p id="superhero-publisher" class="value">Marvel Comics</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="connections details">
+                        <h1 class="details-title" >Connections</h1>
+                        <div class="details-container">
+                            <div>
+                                <p class="propertity">Group Affiliation</p>
+                                <p id="superhero-affiliation" class="value">Hulk Family; Excelsior (sponsor), Avengers (honorary member); formerly partner of the Hulk, Captain America and Captain Marvel; Teen Brigade; ally of Rom</p>
+                            </div>
+                            <div>
+                                <p class="propertity">Relatives</p>
+                                <p id="superhero-relatives" class="value">Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased); Jackie Shorr (alleged mother; unconfirmed)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="powerstates details">
+                        <h1 class="details-title">Power States</h1>
+                        <div class="details-container">
+                            <div>
+                                <p class="propertity">Intelligence</p>
+                                <div class="power-bg">
+                                    <div id="superhero-intelligence" style="width: 30%;" class="power-fg"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="propertity">Strength</p>
+                                <div class="power-bg">
+                                    <div id="superhero-strength" style="width: 30%;" class="power-fg"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="propertity">Speed</p>
+                                <div class="power-bg">
+                                    <div id="superhero-speed" style="width: 30%;" class="power-fg"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="propertity">Durability</p>
+                                <div class="power-bg">
+                                    <div id="superhero-durability" style="width: 30%;" class="power-fg"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="propertity">Power</p>
+                                <div class="power-bg">
+                                    <div id="superhero-power" style="width: 30%;" class="power-fg"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="propertity">Combat</p>
+                                <div class="power-bg">
+                                    <div id="superhero-combat" style="width: 30%;" class="power-fg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <main id="main">
+            <div class="container">
+
+                <form id="form">
+
+                    <div class="fliters">
+
+                        <input id="name" class="fliter_field fliter_name_field" type="text" placeholder="Search By Name" onkeyup="applyNameFilter(this.value)" />
+
+                    </div>
+
+                    <div class="fliters">
+
+                        <div class="fliter_fields">
+
+                            <div class="feild-container">
+                                <p class="feild-lable">Select Gender</p>
+                                <select id="gender" class="fliter_field" onchange="selectFilter('gender', this.value)" >
+                                    <option>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="feild-container">
+                                <p class="feild-lable">Select Publisher</p>
+                                <select id="publisher_container" class="fliter_field" onchange="selectFilter('publisher', this.value)" >
+                                    
+                                </select>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Weight</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Weight" value="0" onkeyup="selectFilter('minWeight', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Weight</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Weight" onkeyup="selectFilter('maxWeight', this.value)" />
+                                </div>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Intelligence</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Intelligence" value="0" onkeyup="selectFilter('minIntelligence', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Intelligence</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Intelligence" value="100" onkeyup="selectFilter('maxIntelligence', this.value)" />
+                                </div>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Strength</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Strength" value="0" onkeyup="selectFilter('minStrength', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Strength</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Strength" value="100" onkeyup="selectFilter('maxStrength', this.value)" />
+                                </div>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Speed</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Speed" value="0" onkeyup="selectFilter('minSpeed', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Speed</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Speed" value="100" onkeyup="selectFilter('maxSpeed', this.value)" />
+                                </div>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Durability</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Durability" value="0" onkeyup="selectFilter('minDurability', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Durability</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Durability" value="100" onkeyup="selectFilter('maxDurability', this.value)" />
+                                </div>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Power</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Power" value="0" onkeyup="selectFilter('minPower', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Power</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Power" value="100" onkeyup="selectFilter('maxPower', this.value)" />
+                                </div>
+                            </div>
+
+                            <div class="feilds-container">
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Minimum Combat</p>
+                                    <input class="fliter_field" type="number" placeholder="Minimum Combat" value="0" onkeyup="selectFilter('minCombat', this.value)" />
+                                </div>
+
+                                <div style="width: 48%;" class="feild-container">
+                                    <p class="feild-lable">Maximum Combat</p>
+                                    <input class="fliter_field" type="number" placeholder="Maximum Combat" value="100" onkeyup="selectFilter('maxCombat', this.value)" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="filter-btns">
+
+                            <button type="button" class="btn" onclick="applyFilters()" >Apply Filters</button>
+                            <button type="button" class="btn" onclick="clearFilters()" >Clear Filters</button>
+
+                        </div>
+
+                        <hr style="margin-top: 20px;" />
+
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+
+                            <div class="feild-container" >
+
+                                <label class="feild-lable">Select Sorting Propertity</label>
+
+                                <select class="fliter_field" id="sort-propertity" onchange="sorting()" >
+                                    <option>Select Propertity</option>
+                                    <option value="intelligence">Intelligence</option>
+                                    <option value="strength">Strength</option>
+                                    <option value="speed">Speed</option>
+                                    <option value="durability">Durability</option>
+                                    <option value="power">Power</option>
+                                    <option value="combat">Combat</option>
+                                </select>
+
+                            </div>
+
+                            <div style="margin-left: 5%;" class="feild-container" >
+
+                                <label class="feild-lable">Select Sorting Type</label>
+
+                                <select onchange="sorting()" class="fliter_field" id="sort-type" >
+
+                                    <option value="">Select Sort Type</option>
+                                    <option value="ascending">Ascending</option>
+                                    <option value="descending">Descending</option>
+
+                                </select>
+                            </div> 
+
+                        </div>
+
+                    </div>
+                </form>
+
+                <div style="width: 100%; display: flex; justify-content: space-between;">
+                    <h1 class="title">Super Heros (<span id="page-count">1</span>)</h1>
+
+                    <div style="display: flex;">
+
+                        <input onchange="goToPage()" id="go-to" style="margin-right: 10px;" class="fliter_field" type="number" placeholder="Go To Page" />
+                        <button onclick="goToPage()" class="btn">Go</button>
+
+                    </div>
+
+                    <div>
+                        <button id="prev-btn" onclick="prev()" class="btn">Previous</button>
+                        <button id="next-btn" onclick="next()" class="btn">next</button>
+                    </div>
+                </div>
+
+                <div id="superheroes" class="superhero-container">
+                    <div class="loading" ></div>
+                </div>
+
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
+
