@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokemons</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- <div class="msg-parent" id="msg-parent"> -->
+        <div id="msg" class="msg">
+            <h1 class="msg-text" id="msg-text">Massage!!!</h1>
+        </div>
+        <!-- </div> -->
+
+        <section class="container">
+            <h1 class="title">Add Pokemons</h1>
+
+            <div class="add">
+                <form
+                    style="
+                        padding: 15px;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                    "
+                    id="form"
+                >
+                    <input
+                        type="text"
+                        class="inp"
+                        id="name"
+                        placeholder="Name"
+                    />
+                    <input
+                        type="text"
+                        class="inp"
+                        id="type"
+                        placeholder="Type"
+                    />
+                    <input type="number" class="inp" id="hp" placeholder="Hp" />
+                    <input
+                        type="number"
+                        class="inp"
+                        id="attack"
+                        placeholder="Attack"
+                    />
+                    <input
+                        type="number"
+                        class="inp"
+                        id="defense"
+                        placeholder="Defense"
+                    />
+                    <input
+                        type="number"
+                        class="inp"
+                        id="speed"
+                        placeholder="Speed"
+                    />
+                    <button type="button" onclick="createPokemon()" class="btn">
+                        Create
+                    </button>
+                </form>
+            </div>
+
+            <h1 class="title">All Pokemons</h1>
+            <div class="pokemons" id="pokemons">
+                <div class="loading"></div>
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>
