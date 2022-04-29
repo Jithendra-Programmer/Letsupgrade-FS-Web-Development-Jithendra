@@ -1,0 +1,251 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
+.main {
+    background-image: url('https://cdn.wallpapersafari.com/24/74/zgeTuV.jpg');
+    background-size: cover;
+    background-blend-mode: saturation;
+    padding: 0px 15%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn {
+    background: #bdbe00;
+    width: 40%;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn:hover {
+    box-shadow: 2px 2px 5px #758283;
+    background-color: #c7c11a;
+}
+
+.message-bg {
+    position: absolute;
+    top: 0px;
+    width: 70%;
+    margin-top: 3vh;
+}
+
+.message {
+    background-color: #fff;
+    height: 50px;
+    line-height: 50px;
+    text-indent: 40px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.register,
+.login {
+    width: 35%;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    color: #000;
+}
+
+.register-input,
+.login-input {
+    color: #000;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-indent: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: 0.4s;
+    border: 1px solid lightgray;
+}
+
+.register-input:focus,
+.login-input:focus {
+    box-shadow: 0px 2px 5px #bdbe00;
+}
+
+.register-input:hover,
+.login-input:hover {
+    box-shadow: 0px 2px 5px #bdbe00;
+}
+
+.link {
+    text-decoration: none;
+    color: #cad5e2;
+    transition: 0.4s;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.link:hover {
+    color: #758283;
+}
+
+.bg {
+    padding: 50px 10%;
+    background-color: #212121;
+    color: #fff;
+    padding-top: 0px;
+}
+
+.title {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.video-container {
+    width: 100%;
+    padding: 20px 0px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.video-card {
+    width: 30%;
+    background-color: #242b2e;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.4s;
+    margin-bottom: 20px;
+}
+
+.video-card:hover {
+    box-shadow: 0px 0px 10px #758283;
+}
+
+.video-card:hover > .video-img {
+    transform: scale(0.9);
+}
+
+.video-img {
+    width: 100%;
+    overflow: hidden;
+    max-height: 230px;
+    transition: 0.4s;
+}
+
+.video-image {
+    width: 100%;
+}
+
+.padd {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.padd > h1,
+.padd > P {
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.video-btn {
+    width: 60%;
+    height: 40px;
+    margin-top: 10px;
+    color: #000;
+}
+
+.video_player_container {
+    padding-top: 30px;
+}
+
+.video_player {
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.video_content {
+    margin-top: 40px;
+}
+
+.video_player_btn_container {
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+    opacity: 0;
+    transition: 0.4s;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7), transparent);
+    width: 100%;
+}
+
+.video_player_btn_container:hover {
+    opacity: 1;
+}
+
+.video_player:hover > .video_player_btn_container {
+    opacity: 1;
+}
+
+.video_player_btn {
+    background-color: transparent;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    width: 50px;
+    height: 50px;
+    color: lightgray;
+    cursor: pointer;
+    float: right;
+}
+
+.video_player_btn:active {
+    color: #fff;
+}
+
+.header {
+    background-color: #212121;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.header > ul {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > ul > li {
+    list-style-type: none;
+    margin-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.logout-btn {
+    color: lightgray;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.logout-btn:hover {
+    color: #fff;
+}
