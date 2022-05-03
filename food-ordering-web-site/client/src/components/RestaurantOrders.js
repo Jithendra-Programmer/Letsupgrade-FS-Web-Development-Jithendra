@@ -34,6 +34,7 @@ function RestaurantOrders() {
             .then((res) => res.json())
             .then((data) => {
                 data.reverse();
+                // console.log(data);
                 setOrignalOrders(data);
                 setOrders(data);
             })
@@ -164,10 +165,10 @@ function RestaurantOrders() {
                         </div>
                     ) : (
                         orders.map((order, key) => (
-                            <div className="order-parent">
-                                <div className="order" key={key}>
+                            <div className="order-parent" key={key}>
+                                <div className="order">
                                     <img
-                                        src={`${baseURL}/food/image/${order.foodItem.pic}`}
+                                        src={`${baseURL}/food/image/${order.foodItem?.pic}`}
                                         alt="order-img"
                                         className="order-img"
                                     />
@@ -180,7 +181,7 @@ function RestaurantOrders() {
                                                 letterSpacing: '1px',
                                             }}
                                         >
-                                            {order.foodItem.name}
+                                            {order.foodItem?.name}
                                         </h1>
                                         <div
                                             className="customer-details"

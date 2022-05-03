@@ -12,9 +12,17 @@ const fooditem = require('./controllers/fooditem');
 const order = require('./controllers/order');
 const cart = require('./controllers/cart');
 
+// mongo atlas culster uri
+
+const uri =
+    'mongodb+srv://Jithendra:pass123@blue-plates.ehlxy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
 // connection to mongo
 mongoose
-    .connect('mongodb://localhost:27017/blue-plates')
+    .connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => console.log('connected to mongodb'))
     .catch((err) => console.log(err));
 
@@ -27,6 +35,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
+app.get('/', (req, res) => res.send('Hello its working fine'));
 app.use('/customer', customer);
 app.use('/restaurant', restaurant);
 app.use('/food', fooditem);

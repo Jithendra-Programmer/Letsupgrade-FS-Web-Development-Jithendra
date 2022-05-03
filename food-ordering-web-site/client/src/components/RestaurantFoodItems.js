@@ -54,6 +54,7 @@ function RestaurantFoodItems() {
     );
 
     const newFormData = new FormData();
+    const updatedFoodImage = new FormData();
 
     // function to read value from input
     const readValue = (property, value) => newFormData.append(property, value);
@@ -163,8 +164,8 @@ function RestaurantFoodItems() {
 
     // function to update food item
     const updateFoodItem = () => {
-        console.log(foodItemToUpdate._id);
-        console.log(token.current);
+        // console.log(foodItemToUpdate._id);
+        // console.log(token.current);
 
         fetch(`${baseURL}/food/updateItem/${foodItemToUpdate._id}`, {
             method: 'PUT',
@@ -176,14 +177,47 @@ function RestaurantFoodItems() {
         })
             .then((res) => res.json())
             .then((data) => {
-                let tempFoodItems = [...foodItems];
-                let index = tempFoodItems.findIndex(
-                    (foodItem) => foodItem._id === foodItemToUpdate._id,
-                );
-                tempFoodItems[index] = foodItemToUpdate;
-                setFoodItems(tempFoodItems);
-                // setFoodItemToUpdate();
-                closeUpdateFoodItemForm();
+                if (data.success) {
+                    console.log('Hello');
+                    if (updatedFoodImage.get('image') !== null) {
+                        fetch(
+                            `${baseURL}/food/updateFoodImage/${foodItemToUpdate._id}`,
+                            {
+                                method: 'PUT',
+                                headers: {
+                                    authorization: `bearer ${token.current}`,
+                                },
+                                body: updatedFoodImage,
+                            },
+                        )
+                            .then((res) => res.json())
+                            .then((response) => {
+                                if (response.success) {
+                                    let tempFoodItems = [...foodItems];
+                                    let index = tempFoodItems.findIndex(
+                                        (foodItem) =>
+                                            foodItem._id ===
+                                            foodItemToUpdate._id,
+                                    );
+                                    tempFoodItems[index] = foodItemToUpdate;
+                                    tempFoodItems[index].pic =
+                                        response.fileName;
+                                    // console.log(response.fileName);
+                                    setFoodItems(tempFoodItems);
+                                    closeUpdateFoodItemForm();
+                                }
+                            })
+                            .catch((err) => console.log(err));
+                    } else {
+                        let tempFoodItems = [...foodItems];
+                        let index = tempFoodItems.findIndex(
+                            (foodItem) => foodItem._id === foodItemToUpdate._id,
+                        );
+                        tempFoodItems[index] = foodItemToUpdate;
+                        setFoodItems(tempFoodItems);
+                        closeUpdateFoodItemForm();
+                    }
+                }
             })
             .catch((err) => console.log(err));
     };
@@ -418,6 +452,18 @@ function RestaurantFoodItems() {
                             type="text"
                             placeholder="Enter Description"
                             required
+                        />
+                        <input
+                            type="file"
+                            className="input-feild"
+                            placeholder="upload image"
+                            style={{ border: 'none' }}
+                            onChange={(event) =>
+                                updatedFoodImage.append(
+                                    'image',
+                                    event.target.files[0],
+                                )
+                            }
                         />
                         <button type="submit" className="btn">
                             Update

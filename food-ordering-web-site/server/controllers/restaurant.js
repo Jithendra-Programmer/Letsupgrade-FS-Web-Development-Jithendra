@@ -139,6 +139,8 @@ router.get('/orders/:id', verifyToken, isRestaurant, async (req, res) => {
         .populate('foodItem')
         .populate('restaurant');
 
+    // console.log(orders);
+
     res.status(200).send(orders);
 });
 

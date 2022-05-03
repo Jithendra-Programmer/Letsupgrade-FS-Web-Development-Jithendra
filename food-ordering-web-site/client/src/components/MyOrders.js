@@ -184,10 +184,30 @@ function MyOrders() {
                                         >
                                             Status:{' '}
                                             <span
-                                                style={{
-                                                    fontFamily: 'monospace',
-                                                    fontWeight: '400',
-                                                }}
+                                                style={
+                                                    order.orderStatus ===
+                                                    'accepted'
+                                                        ? {
+                                                              fontFamily:
+                                                                  'monospace',
+                                                              fontWeight: '400',
+                                                              color: 'green',
+                                                          }
+                                                        : order.orderStatus ===
+                                                          'rejected'
+                                                        ? {
+                                                              fontFamily:
+                                                                  'monospace',
+                                                              fontWeight: '400',
+                                                              color: 'red',
+                                                          }
+                                                        : {
+                                                              fontFamily:
+                                                                  'monospace',
+                                                              fontWeight: '400',
+                                                              // color: 'red'
+                                                          }
+                                                }
                                             >
                                                 {order.orderStatus}
                                             </span>
