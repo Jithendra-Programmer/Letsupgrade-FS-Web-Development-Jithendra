@@ -1,4 +1,4 @@
-# Installation of the project
+# Installation & Setup of the project
 
 ## Api/Server/Backend Installation & setup
 
