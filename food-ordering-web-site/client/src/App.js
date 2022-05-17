@@ -167,4 +167,4 @@ export default function App() {
 }
 
 // base urls
-export const baseURL = 'https://blue-plates-api.herokuapp.com';
+export const baseURL = 'http://localhost:8000';

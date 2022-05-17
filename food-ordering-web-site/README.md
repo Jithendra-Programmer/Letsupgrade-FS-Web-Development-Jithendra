@@ -1,14 +1,39 @@
 # Installation of the project
 
+## Api/Server/Backend Installation & setup
+
+### `cd server`
+
+this will change directory to api project
+
+### `npm install`
+
+this will install the dependencies that needed to run the api
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:8000]
+
+**Note: Keep api server runing and open new terminal window with path same path and fallow this**
+
+## Client/front-end Installation & setup
+
 ### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### `cd client`
+
+this will change directory to front-end project
 
 ### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install`
+
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -46,3 +71,17 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Google docs Links
+
+### `Screen shots document`
+
+https://docs.google.com/document/d/1NaJ_Xci64XOCWhUHfyTUhvYt3LiXB8kcy9a8ptX5js4/edit?usp=sharing
+
+### `MongoDB Schemas Document`
+
+https://docs.google.com/document/d/1NvH_ulGTHN0rftELgEu2I02s2nuHJ_DN1SPomVyspJs/edit?usp=sharing
+
+### `Project Documentation`
+
+https://docs.google.com/document/d/1p70c0AfES6yUhKv9rc8GpJlimjXaFJENfJ7E1QcTapk/edit?usp=sharing
