@@ -23,46 +23,66 @@ router.post('/createItem', verifyToken, isRestaurant, (req, res) => {
 
     form.parse(req, (err, feilds, files) => {
         if (err === null) {
-            let newFilename =
+            let oldpath = files.image.filepath;
+
+            let newImagename =
                 files.image.newFilename +
                 '.' +
                 files.image.originalFilename.split('.')[1];
 
-            fs.rename(
-                files.image.filepath,
-                `./images/food/${newFilename}`,
-                (err) => {
-                    if (err !== null) {
-                        console.log(err);
-                        res.status(400).send({
-                            message: 'Unable to Create food item',
-                            success: false,
-                        });
-                    }
-                },
-            );
+            let newpath = './images/food/' + newImagename;
 
-            let foodData = feilds;
+            fs.readFile(oldpath, (err, data) => {
+                if (err === null) {
+                    fs.writeFile(newpath, data, (err) => {
+                        if (err === null) {
+                            console.log('File stored');
+                            fs.unlink(oldpath, (err) => {
+                                if (err === null) {
+                                    let foodData = feilds;
 
-            foodData.pic = newFilename;
+                                    foodData.pic = newImagename;
 
-            const foodItems = new foodModel(foodData);
-            foodItems
-                .save()
-                .then((response) =>
-                    res.status(200).send({
-                        foodItem: response,
-                        message: 'Food Item Created',
-                        success: true,
-                    }),
-                )
-                .catch((err) => {
+                                    const foodItems = new foodModel(foodData);
+                                    foodItems
+                                        .save()
+                                        .then((response) =>
+                                            res.status(200).send({
+                                                foodItem: response,
+                                                message: 'Food Item Created',
+                                                success: true,
+                                            }),
+                                        )
+                                        .catch((err) => {
+                                            console.log(err);
+                                            res.status(400).send({
+                                                message:
+                                                    'Unable to Create Food Item',
+                                                success: false,
+                                            });
+                                        });
+                                } else {
+                                    console.log(err);
+                                    res.status(400).send({
+                                        message: 'unable to create file',
+                                    });
+                                }
+                            });
+                        } else {
+                            console.log(err);
+                            res.status(400).send({
+                                message: 'unable to create file',
+                            });
+                        }
+                    });
+                } else {
                     console.log(err);
                     res.status(400).send({
-                        message: 'Unable to Create Food Item',
+                        message: 'Unable to Create food item',
                         success: false,
                     });
-                });
+                }
+            });
         } else {
             console.log(err);
             res.status(500).send({
@@ -75,7 +95,7 @@ router.post('/createItem', verifyToken, isRestaurant, (req, res) => {
 
 // route to get the image of the food item
 router.get('/image/:filename', (req, res) => {
-    res.download(`./images/food/${req.params.filename}`);
+    res.download('./images/food/' + req.params.filename);
 });
 
 // route to update the food item
@@ -122,58 +142,84 @@ router.put(
                     _id: req.params.id,
                 });
                 let oldFilePath = `./images/food/${foodItem.pic}`;
-                let newFile =
+
+                let oldpath = files.image.filepath;
+
+                let newImagename =
                     files.image.newFilename +
                     '.' +
                     files.image.originalFilename.split('.')[1];
 
-                fs.rename(
-                    files.image.filepath,
-                    `./images/food/${newFile}`,
-                    (err) => {
-                        if (err === null) {
-                            console.log('file saved');
-                            fs.unlink(oldFilePath, (err) => {
-                                if (err === null) {
-                                    console.log('file removed');
-                                    foodModel
-                                        .updateOne(
-                                            { _id: req.params.id },
-                                            { pic: newFile },
-                                        )
-                                        .then(() => {
-                                            console.log('data updated');
-                                            res.status(200).send({
-                                                fileName: newFile,
-                                                message: 'Food Item Created',
-                                                success: true,
-                                            });
-                                        })
-                                        .catch((err) => {
-                                            console.log(err);
-                                            res.status(400).send({
-                                                message:
-                                                    'Unable to Create food item',
-                                                success: false,
-                                            });
+                let newpath = './images/food/' + newImagename;
+
+                fs.readFile(oldpath, (err, data) => {
+                    if (err === null) {
+                        fs.writeFile(newpath, data, (err) => {
+                            if (err === null) {
+                                console.log('File stored');
+
+                                fs.unlink(oldpath, (err) => {
+                                    if (err === null) {
+                                        console.log('file saved');
+                                        fs.unlink(oldFilePath, (err) => {
+                                            if (err === null) {
+                                                console.log('file removed');
+                                                foodModel
+                                                    .updateOne(
+                                                        { _id: req.params.id },
+                                                        { pic: newImagename },
+                                                    )
+                                                    .then(() => {
+                                                        console.log(
+                                                            'data updated',
+                                                        );
+                                                        res.status(200).send({
+                                                            fileName:
+                                                                newImagename,
+                                                            message:
+                                                                'Food Item Created',
+                                                            success: true,
+                                                        });
+                                                    })
+                                                    .catch((err) => {
+                                                        console.log(err);
+                                                        res.status(400).send({
+                                                            message:
+                                                                'Unable to Create food item',
+                                                            success: false,
+                                                        });
+                                                    });
+                                            } else {
+                                                console.log(err);
+                                                res.status(400).send({
+                                                    message:
+                                                        'Unable to Create food item',
+                                                    success: false,
+                                                });
+                                            }
                                         });
-                                } else {
-                                    console.log(err);
-                                    res.status(400).send({
-                                        message: 'Unable to Create food item',
-                                        success: false,
-                                    });
-                                }
-                            });
-                        } else {
-                            console.log(err);
-                            res.status(400).send({
-                                message: 'Unable to Create food item',
-                                success: false,
-                            });
-                        }
-                    },
-                );
+                                    } else {
+                                        console.log(err);
+                                        res.status(400).send({
+                                            message: 'unable to create file',
+                                        });
+                                    }
+                                });
+                            } else {
+                                console.log(err);
+                                res.status(400).send({
+                                    message: 'unable to create file',
+                                });
+                            }
+                        });
+                    } else {
+                        console.log(err);
+                        res.status(400).send({
+                            message: 'Unable to Create food item',
+                            success: false,
+                        });
+                    }
+                });
             } else {
                 console.log(err);
                 res.status(500).send({

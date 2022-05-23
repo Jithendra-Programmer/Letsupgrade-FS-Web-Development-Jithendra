@@ -8,6 +8,7 @@ const isRestaurantFoodItem = async (req, res, next) => {
     let _id = req.params.id;
 
     let foodItem = await foodModel.findOne({ _id }).populate('restaurant');
+    console.log(foodItem);
     if (name === foodItem.restaurant.restaurantName) {
         next();
     } else {

@@ -26,59 +26,88 @@ router.post('/signup', (req, res) => {
         console.log(files.image.newFilename);
 
         if (err === null) {
-            let newFileName =
+            let oldpath = files.image.filepath;
+
+            let newImageName =
                 files.image.newFilename +
                 '.' +
                 files.image.originalFilename.split('.')[1];
-            // console.log(newFileName);
-            fs.rename(
-                files.image.filepath,
-                `./images/restaurant/${newFileName}`,
-                (err) => {
-                    if (err !== null) {
-                        console.log(err);
-                        res.status(400).send({
-                            message: 'Unable to Create food item',
-                            success: false,
-                        });
-                    }
-                },
-            );
 
-            let userData = fields;
+            console.log(newImageName);
 
-            userData.pic = newFileName;
+            let newpath = './images/restaurant/' + newImageName;
+            console.log(newpath);
 
-            let salt = await bcrypt.genSalt(10);
+            fs.readFile(oldpath, (err, data) => {
+                if (err === null) {
+                    fs.writeFile(newpath, data, (err) => {
+                        if (err === null) {
+                            fs.unlink(oldpath, async (err) => {
+                                if (err === null) {
+                                    let userData = fields;
 
-            let hashedPassword = await bcrypt.hash(userData.password, salt);
+                                    userData.pic = newImageName;
 
-            userData.password = hashedPassword;
+                                    let salt = await bcrypt.genSalt(10);
 
-            const restaurants = restaurantModel(userData);
+                                    let hashedPassword = await bcrypt.hash(
+                                        userData.password,
+                                        salt,
+                                    );
 
-            restaurants
-                .save()
-                .then(() =>
-                    res.send({
-                        message: 'Restaurant account created!!',
-                        success: true,
-                    }),
-                )
-                .catch((err) => {
+                                    userData.password = hashedPassword;
+
+                                    const restaurants =
+                                        restaurantModel(userData);
+
+                                    restaurants
+                                        .save()
+                                        .then(() =>
+                                            res.status(200).send({
+                                                message:
+                                                    'Restaurant account created!!',
+                                                success: true,
+                                            }),
+                                        )
+                                        .catch((err) => {
+                                            console.log(err);
+                                            res.status(400).send({
+                                                message:
+                                                    'Unable to create Restaurant',
+                                                success: false,
+                                            });
+                                        });
+                                } else {
+                                    console.log(err);
+                                    res.status(400).send({
+                                        message: 'Unable to create Restaurant',
+                                        success: false,
+                                    });
+                                }
+                            });
+                        } else {
+                            console.log(err);
+                            res.send({
+                                message: 'Unable to create Restaurant',
+                                success: false,
+                            });
+                        }
+                    });
+                } else {
                     console.log(err);
-                    res.send({
+                    res.status(400).send({
                         message: 'Unable to create Restaurant',
                         success: false,
                     });
-                });
+                }
+            });
         }
     });
 });
 
 // route to get the image of the restaurant
 router.get('/image/:filename', (req, res) =>
-    res.download(`./images/restaurant/${req.params.filename}`),
+    res.download('./images/restaurant/' + req.params.filename),
 );
 
 // route to login the restaurant admin
@@ -89,6 +118,8 @@ router.post('/login', async (req, res) => {
         role: userCred.role,
         restaurantName: userCred.restaurantName,
     });
+
+    console.log(user);
 
     if (user === null) {
         res.status(401).send({
